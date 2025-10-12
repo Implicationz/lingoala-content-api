@@ -1,0 +1,337 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="Lutz (generated)" id="1756833187911-1">
+        <createTable tableName="collection">
+            <column name="difficulty" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="estimated_duration" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="collection_pkey"/>
+            </column>
+            <column name="subject_id" type="BIGINT"/>
+            <column name="topic_id" type="BIGINT"/>
+            <column name="type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="title_transcription" type="VARCHAR(255)"/>
+            <column name="title_translation" type="VARCHAR(255)"/>
+            <column name="visibility" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-2">
+        <createTable tableName="collection_item">
+            <column name="difficulty" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="estimated_duration" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="position" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="collection_id" type="BIGINT"/>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="collection_item_pkey"/>
+            </column>
+            <column name="subject_id" type="BIGINT"/>
+            <column name="topic_id" type="BIGINT"/>
+            <column name="type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="title_transcription" type="VARCHAR(255)"/>
+            <column name="title_translation" type="VARCHAR(255)"/>
+            <column name="visibility" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-3">
+        <createTable tableName="course">
+            <column name="difficulty" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="estimated_duration" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="course_pkey"/>
+            </column>
+            <column name="subject_id" type="BIGINT"/>
+            <column name="topic_id" type="BIGINT"/>
+            <column name="type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="title_transcription" type="VARCHAR(255)"/>
+            <column name="title_translation" type="VARCHAR(255)"/>
+            <column name="visibility" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-4">
+        <createTable tableName="content">
+            <column name="difficulty" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="estimated_duration" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="position" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="content_pkey"/>
+            </column>
+            <column name="subject_id" type="BIGINT"/>
+            <column name="topic_id" type="BIGINT"/>
+            <column name="type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_id" type="BIGINT"/>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="title_transcription" type="VARCHAR(255)"/>
+            <column name="title_translation" type="VARCHAR(255)"/>
+            <column name="visibility" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-5">
+        <createTable tableName="material">
+            <column name="question_count" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="word_count" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="material_pkey"/>
+            </column>
+            <column name="content_id" type="BIGINT"/>
+            <column name="artifact" type="VARCHAR(255)"/>
+            <column name="goal" type="VARCHAR(255)"/>
+            <column name="quiz" type="VARCHAR(255)"/>
+            <column name="summary" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-6">
+        <createTable tableName="unit">
+            <column name="difficulty" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="estimated_duration" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="position" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="course_id" type="BIGINT"/>
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="unit_pkey"/>
+            </column>
+            <column name="subject_id" type="BIGINT"/>
+            <column name="topic_id" type="BIGINT"/>
+            <column name="type_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" type="VARCHAR(255)"/>
+            <column name="language" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="title_transcription" type="VARCHAR(255)"/>
+            <column name="title_translation" type="VARCHAR(255)"/>
+            <column name="visibility" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-7">
+        <createTable tableName="subject">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="subject_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-8">
+        <createTable tableName="summary">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="summary_pkey"/>
+            </column>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="reference" type="VARCHAR(255)"/>
+            <column name="text" type="TEXT"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="transliteration" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-9">
+        <createTable tableName="topic">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="topic_pkey"/>
+            </column>
+            <column name="subject_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-10">
+        <addUniqueConstraint columnNames="name" constraintName="subject_name_key" tableName="subject"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-11">
+        <addUniqueConstraint columnNames="reference" constraintName="summary_reference_key" tableName="summary"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-12">
+        <addUniqueConstraint columnNames="name" constraintName="topic_name_key" tableName="topic"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-13">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="collection_item_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-14">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="collection_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-15">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="course_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-16">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="content_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-17">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="content_type_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-18">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="material_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-19">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="subject_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-20">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="summary_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-21">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="summary_translation_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-22">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="topic_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-23">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="50" maxValue="9223372036854775807" minValue="1" sequenceName="unit_seq" startValue="1"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-24">
+        <createTable tableName="content_type">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="content_type_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-25">
+        <createTable tableName="summary_translation">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="summary_translation_pkey"/>
+            </column>
+            <column name="summary_id" type="BIGINT"/>
+            <column name="language" type="VARCHAR(255)"/>
+            <column name="text" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-26">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="collection" constraintName="fk4c7mxviekdthg1k9osl27xprw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="content_type" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-27">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="course" constraintName="fk4gaampt5mm7dcbw9unyqpoimh" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="content_type" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-28">
+        <addForeignKeyConstraint baseColumnNames="summary_id" baseTableName="summary_translation" constraintName="fk4p7i8uhcuw52mvtq7qwvseuq6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="summary" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-29">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="content" constraintName="fk7ktmsnct2a6fbboc56vgssbkk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="content_type" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-30">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="content" constraintName="fk7ydr23s8y9j6lip5qrngoymx4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="subject" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-31">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="collection_item" constraintName="fk93kth2e9h8l5o9p8hxpjvfk2c" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="content_type" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-32">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="collection_item" constraintName="fk9jh3galj26n3pr69da0nc7o6r" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="subject" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-33">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="topic" constraintName="fka36s3q1p2kfgtp51ydh0tx4cc" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="subject" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-34">
+        <addForeignKeyConstraint baseColumnNames="topic_id" baseTableName="collection_item" constraintName="fkbp2dilfy7hqidmjw7183i649n" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="topic" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-35">
+        <addForeignKeyConstraint baseColumnNames="content_id" baseTableName="material" constraintName="fkdoflckowlefe5jc62qglfxyde" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="content" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-36">
+        <addForeignKeyConstraint baseColumnNames="topic_id" baseTableName="collection" constraintName="fkeniqgbvqitmnyow2tu5pu0hor" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="topic" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-37">
+        <addForeignKeyConstraint baseColumnNames="collection_id" baseTableName="collection_item" constraintName="fkjo602vny7wm9snime4wm98y5k" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="collection" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-38">
+        <addForeignKeyConstraint baseColumnNames="course_id" baseTableName="unit" constraintName="fkklgc968gfkt5h5rre4c9gd4d8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="course" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-39">
+        <addForeignKeyConstraint baseColumnNames="topic_id" baseTableName="unit" constraintName="fklnotubib4w0ltb1grtpf7rm32" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="topic" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-40">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="course" constraintName="fkm1expnaas0onmafqpktmjixnx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="subject" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-41">
+        <addForeignKeyConstraint baseColumnNames="topic_id" baseTableName="content" constraintName="fkni3nqpuau54ygl4lk0o6vu5xn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="topic" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-42">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="collection" constraintName="fknnml2l05tylfe9g578fkkkd2k" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="subject" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-43">
+        <addForeignKeyConstraint baseColumnNames="unit_id" baseTableName="content" constraintName="fkoha1pbgh7okicxvwjdbgcyoe8" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="unit" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-44">
+        <addForeignKeyConstraint baseColumnNames="topic_id" baseTableName="course" constraintName="fkokaxyfpv8p583w8yspapfb2ar" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="topic" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-45">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="unit" constraintName="fkqi0ph3d00odx2bs1mt36ls2pj" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="content_type" validate="true"/>
+    </changeSet>
+    <changeSet author="Lutz (generated)" id="1756833187911-46">
+        <addForeignKeyConstraint baseColumnNames="subject_id" baseTableName="unit" constraintName="fktkr779s2vm6m1sb9m3idspig1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="subject" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,14 @@
+spring:
+    application:
+      name: content
+    profiles:
+      active: dev
+    jpa:
+      open-in-view: false
+lingoala:
+  gamification:
+    client:
+      api-key: ${GAMIFICATION_API_KEY}
+      url: ${GAMIFICATION_CLIENT_URL}
+  content:
+    languages: en,de,fr,es,ru,ar-EG,zh
