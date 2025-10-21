@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class LibraryEntry extends BaseEntity {
+public class LibraryEntry extends AuditAwareEntity {
 
     @ManyToOne(optional = false)
     private Library library;

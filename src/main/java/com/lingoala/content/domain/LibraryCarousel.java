@@ -9,10 +9,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ContentSearch {
-    private LanguageCode language;
+public class LibraryCarousel {
+    private Library library;
     private Subject subject;
     private Topic topic;
-    private List<ContentSearchHit> hits;
-    private ContentSearchSort sort;
+    private List<LibraryCarouselSlide> slides;
 }

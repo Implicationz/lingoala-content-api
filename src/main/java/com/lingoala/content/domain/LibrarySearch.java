@@ -13,5 +13,5 @@ public class LibrarySearch {
     private Library library;
     private Subject subject;
     private Topic topic;
-    private List<LibraryEntry> entries;
+    private List<LibrarySearchHit> hits;
 }

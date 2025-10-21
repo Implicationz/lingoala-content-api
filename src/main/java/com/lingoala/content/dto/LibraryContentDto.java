@@ -30,5 +30,6 @@ public class LibraryContentDto {
     private String image;
 
     private LibraryMaterialDto material;
+    private List<LibraryContentPartDto> partOf;
     private List<LibraryContentPartDto> parts;
 }

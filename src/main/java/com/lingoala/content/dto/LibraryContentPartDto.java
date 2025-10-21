@@ -9,6 +9,7 @@ import lombok.*;
 @Builder
 public class LibraryContentPartDto {
 
+    private Long id;
     private LibraryContentDto parent;
 
     private int position;

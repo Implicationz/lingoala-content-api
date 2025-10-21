@@ -1,5 +1,6 @@
 package com.lingoala.content.dto;
 
+import com.lingoala.content.domain.LibrarySearchHit;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,5 @@ public class LibrarySearchDto {
     private LibraryDto library;
     private SubjectDto subject;
     private TopicDto topic;
-    private List<LibraryEntryDto> entries;
+    private List<LibrarySearchHitDto> hits;
 }

@@ -1,19 +1,26 @@
 package com.lingoala.content.mapper;
 
 
-import com.lingoala.content.domain.ContentSearch;
+import com.lingoala.content.domain.LibraryCarousel;
 import com.lingoala.content.domain.LibraryContent;
-import com.lingoala.content.dto.ContentSearchDto;
+import com.lingoala.content.domain.LibraryEntry;
+import com.lingoala.content.dto.LibraryCarouselDto;
 import com.lingoala.content.dto.LibraryContentDto;
+import com.lingoala.content.dto.LibraryEntryDto;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", builder = @Builder(disableBuilder = true))
-public interface ContentSearchMapper {
+public interface LibraryCarouselMapper {
     
-    ContentSearchDto toDto(ContentSearch contentSearch);
-    ContentSearch toEntity(ContentSearchDto contentSearchDto);
+    LibraryCarouselDto toDto(LibraryCarousel libraryCarousel);
+    LibraryCarousel toEntity(LibraryCarouselDto libraryCarouselDto);
+
+    @Mapping(target = "library", ignore = true)
+    LibraryEntryDto toDto(LibraryEntry libraryEntry);
+    @Mapping(target = "library", ignore = true)
+    LibraryEntry toEntity(LibraryEntryDto libraryEntryDto);
 
     @Mapping(target = "parts", ignore = true)
     @Mapping(target = "partOf", ignore = true)

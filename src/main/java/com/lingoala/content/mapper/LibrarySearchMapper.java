@@ -23,7 +23,9 @@ public interface LibrarySearchMapper {
     LibraryEntry toEntity(LibraryEntryDto libraryEntryDto);
 
     @Mapping(target = "parts", ignore = true)
+    @Mapping(target = "partOf", ignore = true)
     LibraryContentDto toDto(LibraryContent libraryContent);
     @Mapping(target = "parts", ignore = true)
+    @Mapping(target = "partOf", ignore = true)
     LibraryContent toEntity(LibraryContentDto libraryContentDto);
 }

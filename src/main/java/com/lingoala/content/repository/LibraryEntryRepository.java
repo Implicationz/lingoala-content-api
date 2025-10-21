@@ -1,5 +1,6 @@
 package com.lingoala.content.repository;
 
+import com.lingoala.content.domain.Library;
 import com.lingoala.content.domain.LibraryEntry;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -12,9 +13,12 @@ import java.util.Optional;
 public interface LibraryEntryRepository extends JpaRepository<LibraryEntry, Long>, JpaSpecificationExecutor<LibraryEntry> {
 
     @Override
-    @EntityGraph(attributePaths = {"content", "content.parts"})
+    @EntityGraph(attributePaths = {"content", "content.material", "content.partOf", "content.partOf.parent"})
     Optional<LibraryEntry> findById(Long id);
 
     @EntityGraph(attributePaths = {"content"})
     List<LibraryEntry> findAll(Specification<LibraryEntry> spec);
+
+    @EntityGraph(attributePaths = {"content"})
+    List<LibraryEntry> findAllByLibraryOrderByCreatedAtDesc(Library library);
 }

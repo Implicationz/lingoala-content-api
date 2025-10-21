@@ -1,5 +1,7 @@
 package com.lingoala.content.dto;
 
+import com.lingoala.content.domain.ContentSearch;
+import com.lingoala.content.domain.ContentSearchSort;
 import com.lingoala.content.domain.LanguageCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,5 +18,6 @@ public class ContentSearchDto {
     private LanguageCode language;
     private SubjectDto subject;
     private TopicDto topic;
-    private List<LibraryContentDto> entries;
+    private List<ContentSearchHitDto> hits;
+    private ContentSearchSort sort;
 }

@@ -8,13 +8,14 @@ import lombok.Setter;
 import org.hibernate.annotations.BatchSize;
 
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LibraryContent extends BaseEntity {
+public class LibraryContent extends AuditAwareEntity {
 
     private String title;
     private String titleTranslation;
@@ -42,6 +43,8 @@ public class LibraryContent extends BaseEntity {
 
     private String ownerId;
 
+    private Double randomSeed;
+
     private int estimatedDuration;
 
     private String image;
@@ -49,8 +52,17 @@ public class LibraryContent extends BaseEntity {
     @OneToOne(cascade = CascadeType.ALL)
     private LibraryMaterial material;
 
+    @BatchSize(size = 10)
+    @OneToMany(mappedBy = "child", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LibraryContentPart> partOf;
 
-    @BatchSize(size = 30)
+    @BatchSize(size = 100)
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LibraryContentPart> parts;
+
+    @PrePersist
+    protected void onContentPersist() {
+        if (randomSeed == null)
+            randomSeed = ThreadLocalRandom.current().nextDouble();
+    }
 }

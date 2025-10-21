@@ -4,6 +4,7 @@ package com.lingoala.content.service;
 import com.lingoala.content.dto.LibraryEntryDto;
 import com.lingoala.content.exception.ResourceNotFoundException;
 import com.lingoala.content.mapper.LibraryEntryMapper;
+import com.lingoala.content.repository.LibraryContentRepository;
 import com.lingoala.content.repository.LibraryEntryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,7 @@ import java.util.List;
 public class LibraryEntryServiceImpl implements LibraryEntryService {
 
     private final LibraryEntryRepository libraryEntryRepository;
+    private final LibraryContentRepository libraryContentRepository;
     private final LibraryEntryMapper libraryEntryMapper;
 
     @Override
@@ -52,6 +54,8 @@ public class LibraryEntryServiceImpl implements LibraryEntryService {
         var existingLibraryEntry = libraryEntryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("LibraryEntry not found"));
         libraryEntryMapper.updateEntityFromDto(libraryEntryDto, existingLibraryEntry);
+        var content = libraryContentRepository.getReferenceById(libraryEntryDto.getContent().getId());
+        existingLibraryEntry.setContent(content);
         log.info("LibraryEntry updated with id: {}", id);
         return libraryEntryMapper.toDto(existingLibraryEntry);
     }

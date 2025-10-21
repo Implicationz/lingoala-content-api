@@ -1,6 +1,7 @@
 package com.lingoala.content.client;
 
 import com.lingoala.content.configuration.FeignClientConfiguration;
+import com.lingoala.content.domain.LanguageCode;
 import com.lingoala.gamification.dto.GoalDto;
 import com.lingoala.gamification.dto.GoalTypeDto;
 import com.lingoala.gamification.dto.GoalZoneDto;
@@ -21,7 +22,8 @@ public interface GamificationClient {
     @GetMapping("/goal")
     List<GoalDto> getGoals(
             @RequestParam("zone") String zone,
-            @RequestParam("type") String type
+            @RequestParam("type") String type,
+            @RequestParam(value = "references", required = false) List<String> references
     );
 
     @PostMapping("/goal-type")
@@ -29,4 +31,12 @@ public interface GamificationClient {
 
     @PostMapping("/goal-zone")
     GoalZoneDto createZone(@RequestBody GoalZoneDto zoneDto);
+
+    default List<GoalDto> getLibraryContentGoals(LanguageCode code) {
+        return getLibraryContentGoals(code, null);
+    }
+
+    default List<GoalDto> getLibraryContentGoals(LanguageCode code, List<String> references) {
+        return getGoals(code.getValue(), "library-content", references);
+    }
 }
