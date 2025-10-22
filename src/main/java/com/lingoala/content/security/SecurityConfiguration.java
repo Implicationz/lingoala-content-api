@@ -1,5 +1,8 @@
 package com.lingoala.content.security;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +22,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 
+@Slf4j
 @Configuration
 public class SecurityConfiguration {
 
@@ -51,6 +55,8 @@ public class SecurityConfiguration {
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+        log.info("CORS Allowed Origins: {}", corsProperties.getAllowedOrigins());
+
         var config = new CorsConfiguration();
         config.setAllowedOrigins(corsProperties.getAllowedOrigins());
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));

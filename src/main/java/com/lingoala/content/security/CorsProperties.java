@@ -1,5 +1,6 @@
 package com.lingoala.content.security;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -9,8 +10,7 @@ import java.util.List;
 
 @Component
 @ConfigurationProperties(prefix = "cors")
-@Getter
-@Setter
+@Data
 public class CorsProperties {
     private List<String> allowedOrigins;
 }
