@@ -1,13 +1,11 @@
 package com.lingoala.content.mapper;
 
 
-import com.lingoala.content.domain.Library;
 import com.lingoala.content.domain.LibraryContent;
 import com.lingoala.content.domain.LibraryContentPart;
 import com.lingoala.content.domain.LibraryEntry;
 import com.lingoala.content.dto.LibraryContentDto;
 import com.lingoala.content.dto.LibraryContentPartDto;
-import com.lingoala.content.dto.LibraryDto;
 import com.lingoala.content.dto.LibraryEntryDto;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;

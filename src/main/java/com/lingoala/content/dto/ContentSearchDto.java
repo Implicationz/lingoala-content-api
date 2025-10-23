@@ -1,6 +1,5 @@
 package com.lingoala.content.dto;
 
-import com.lingoala.content.domain.ContentSearch;
 import com.lingoala.content.domain.ContentSearchSort;
 import com.lingoala.content.domain.LanguageCode;
 import lombok.AllArgsConstructor;

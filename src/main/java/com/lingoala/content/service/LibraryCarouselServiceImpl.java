@@ -1,21 +1,20 @@
 package com.lingoala.content.service;
 
 import com.lingoala.content.client.GamificationClient;
-import com.lingoala.content.domain.*;
+import com.lingoala.content.domain.LibraryCarousel;
+import com.lingoala.content.domain.LibraryCarouselSlide;
+import com.lingoala.content.domain.LibraryEntry;
 import com.lingoala.content.dto.LibraryCarouselDto;
 import com.lingoala.content.mapper.LibraryCarouselMapper;
 import com.lingoala.content.repository.LibraryEntryRepository;
-import com.lingoala.content.repository.LibraryEntrySpecifications;
 import com.lingoala.content.repository.LibraryRepository;
 import com.lingoala.gamification.dto.GoalDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 

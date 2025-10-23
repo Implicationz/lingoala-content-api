@@ -1,6 +1,5 @@
 package com.lingoala.content.dto;
 
-import com.lingoala.content.domain.LibrarySearchHit;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

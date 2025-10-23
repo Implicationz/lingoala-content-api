@@ -5,6 +5,7 @@ import com.lingoala.content.exception.ResourceNotFoundException;
 import com.lingoala.content.mapper.SubjectMapper;
 import com.lingoala.content.repository.SubjectRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,7 +47,7 @@ public class SubjectServiceImpl implements SubjectService {
     @Transactional(readOnly = true)
     @Override
     public List<SubjectDto> readAll(String name) {
-        var subjects = subjectRepository.findByNameStartingWithIgnoreCase(name);
+        var subjects = Strings.isBlank(name) ? subjectRepository.findAll() : subjectRepository.findByNameStartingWithIgnoreCase(name);
         return subjects.stream().map(subjectMapper::toDto).toList();
     }
 

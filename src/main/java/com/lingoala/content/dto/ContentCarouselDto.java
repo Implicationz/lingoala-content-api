@@ -1,6 +1,7 @@
 package com.lingoala.content.dto;
 
-import com.lingoala.content.domain.*;
+import com.lingoala.content.domain.ContentSearchSort;
+import com.lingoala.content.domain.LanguageCode;
 import lombok.*;
 
 import java.util.List;

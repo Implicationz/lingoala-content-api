@@ -1,9 +1,5 @@
 package com.lingoala.content.dto;
 
-import com.lingoala.content.domain.Library;
-import com.lingoala.content.domain.LibraryEntry;
-import com.lingoala.content.domain.Subject;
-import com.lingoala.content.domain.Topic;
 import lombok.*;
 
 import java.util.List;

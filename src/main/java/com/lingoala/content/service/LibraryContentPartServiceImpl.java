@@ -1,13 +1,11 @@
 package com.lingoala.content.service;
 
 
-import com.lingoala.content.domain.LibraryContentPart;
 import com.lingoala.content.dto.LibraryContentPartDto;
 import com.lingoala.content.exception.ResourceNotFoundException;
 import com.lingoala.content.mapper.LibraryContentPartMapper;
 import com.lingoala.content.repository.LibraryContentPartRepository;
 import com.lingoala.content.repository.LibraryContentRepository;
-import com.lingoala.content.utility.EntitySyncUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

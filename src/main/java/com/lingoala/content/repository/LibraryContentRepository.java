@@ -1,7 +1,6 @@
 package com.lingoala.content.repository;
 
 import com.lingoala.content.domain.LibraryContent;
-import com.lingoala.content.domain.LibraryContentPart;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

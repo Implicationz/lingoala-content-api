@@ -1,7 +1,10 @@
 package com.lingoala.content.service;
 
 import com.lingoala.content.client.GamificationClient;
-import com.lingoala.content.domain.*;
+import com.lingoala.content.domain.ContentSearch;
+import com.lingoala.content.domain.ContentSearchHit;
+import com.lingoala.content.domain.ContentSearchSort;
+import com.lingoala.content.domain.LibraryContent;
 import com.lingoala.content.dto.ContentSearchDto;
 import com.lingoala.content.mapper.ContentSearchMapper;
 import com.lingoala.content.repository.LibraryContentRepository;
