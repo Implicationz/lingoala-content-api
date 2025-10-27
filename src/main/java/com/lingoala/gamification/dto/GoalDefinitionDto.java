@@ -8,5 +8,6 @@ import java.util.List;
 public class GoalDefinitionDto {
     private Long id;
     private String reference;
+    private long target;
     private List<ObjectiveDefinitionDto> objectives;
 }
