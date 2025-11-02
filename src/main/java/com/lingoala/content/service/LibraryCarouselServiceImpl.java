@@ -38,7 +38,7 @@ public class LibraryCarouselServiceImpl implements LibraryCarouselService {
 
         var slides = found.stream()
                 .map(entry -> {
-                    var goal = goalByRef.getOrDefault(entry.getId(), null);
+                    var goal = goalByRef.getOrDefault(entry.getContent().getId(), null);
                     return LibraryCarouselSlide.builder()
                             .entry(entry)
                             .goal(goal)

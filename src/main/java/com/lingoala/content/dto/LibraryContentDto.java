@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -25,7 +26,7 @@ public class LibraryContentDto {
     private ContentTypeDto type;
     private ContentDifficulty difficulty = ContentDifficulty.A1;
     private Visibility visibility = Visibility.PRIVATE;
-    private String ownerId;
+    private UUID ownerId;
     private int estimatedDuration;
     private String image;
 

@@ -3,6 +3,7 @@ package com.lingoala.content.repository;
 import com.lingoala.content.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class LibraryContentSpecifications {
@@ -37,6 +38,14 @@ public class LibraryContentSpecifications {
         return (root, query, cb) -> {
             query.orderBy(cb.desc(root.get("createdAt")));
             return cb.conjunction();
+        };
+    }
+
+    public static Specification<LibraryContent> isVisible(UUID userId) {
+        return (root, query, cb) -> {
+            var notPrivate = cb.notEqual(root.get("visibility"), Visibility.PRIVATE);
+            var isOwner = cb.equal(root.get("ownerId"), userId);
+            return cb.or(notPrivate, isOwner);
         };
     }
 }

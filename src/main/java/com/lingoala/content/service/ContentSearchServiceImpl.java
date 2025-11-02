@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class ContentSearchServiceImpl implements ContentSearchService {
 
+    private final UserService userService;
     private final LibraryContentRepository libraryContentRepository;
     private final ContentSearchMapper contentSearchMapper;
     private final GamificationClient gamificationClient;
@@ -80,6 +81,9 @@ public class ContentSearchServiceImpl implements ContentSearchService {
         if (ContentSearchSort.RANDOM.equals(search.getSort())) {
             spec = spec.and(LibraryContentSpecifications.randomOrder());
         }
+
+        var userId = userService.getCurrentUserId();
+        spec = spec.and(LibraryContentSpecifications.isVisible(userId));
 
         return libraryContentRepository.findAll(spec);
     }
