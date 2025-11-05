@@ -41,11 +41,18 @@ public class LibraryContentSpecifications {
         };
     }
 
-    public static Specification<LibraryContent> isVisible(UUID userId) {
+    public static Specification<LibraryContent> isVisible(Account account) {
+        var canViewPremium = account != null && AccessLevel.PREMIUM.equals(account.getAccessLevel());
         return (root, query, cb) -> {
-            var notPrivate = cb.notEqual(root.get("visibility"), Visibility.PRIVATE);
-            var isOwner = cb.equal(root.get("ownerId"), userId);
-            return cb.or(notPrivate, isOwner);
+            var free = cb.equal(root.get("visibility"), Visibility.FREE);
+            var isOwner = cb.equal(root.get("owner"), account);
+
+            if(!canViewPremium) {
+                cb.or(isOwner, free);
+            }
+
+            var premium = cb.equal(root.get("visibility"), Visibility.PREMIUM);
+            return cb.or(isOwner, free, premium);
         };
     }
 }

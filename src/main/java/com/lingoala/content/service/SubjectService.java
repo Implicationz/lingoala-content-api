@@ -10,7 +10,6 @@ public interface SubjectService {
     SubjectDto readById(Long id);
     List<SubjectDto> readAll();
 
-    @Transactional(readOnly = true)
     List<SubjectDto> readAll(String name);
 
     SubjectDto update(Long id, SubjectDto subject);

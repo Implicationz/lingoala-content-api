@@ -1,6 +1,5 @@
 package com.lingoala.content.domain;
 
-import com.lingoala.content.domain.listener.LibraryContentListener;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,12 +7,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.BatchSize;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Entity
-@EntityListeners(LibraryContentListener.class)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -44,13 +43,16 @@ public class LibraryContent extends AuditAwareEntity {
     @Column(nullable = false)
     private Visibility visibility = Visibility.PRIVATE;
 
-    private UUID ownerId;
+    @ManyToOne
+    private Account owner;
 
     private Double randomSeed;
 
     private int estimatedDuration;
 
     private String image;
+
+    private Instant publishedAt;
 
     @OneToOne(cascade = CascadeType.ALL)
     private LibraryMaterial material;
@@ -68,4 +70,6 @@ public class LibraryContent extends AuditAwareEntity {
         if (randomSeed == null)
             randomSeed = ThreadLocalRandom.current().nextDouble();
     }
+
+
 }
