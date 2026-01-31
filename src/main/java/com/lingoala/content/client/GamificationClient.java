@@ -16,7 +16,8 @@ import java.util.List;
 @FeignClient(
         name = "gamification-service",
         url = "${lingoala.gamification.client.url}",
-        configuration = FeignClientConfiguration.class
+        configuration = FeignClientConfiguration.class,
+        fallback = GamificationClientFallback.class
 )
 public interface GamificationClient {
     @GetMapping("/goal")

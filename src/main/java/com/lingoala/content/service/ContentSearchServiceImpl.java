@@ -57,6 +57,7 @@ public class ContentSearchServiceImpl implements ContentSearchService {
         var goals = gamificationClient.getLibraryContentGoals(contentSearch.getLanguage(), references);
         var hits = toHits(found, goals);
         var savedContentSearch = ContentSearch.builder()
+                .language(contentSearch.getLanguage())
                 .subject(contentSearch.getSubject())
                 .topic(contentSearch.getTopic())
                 .hits(hits)
