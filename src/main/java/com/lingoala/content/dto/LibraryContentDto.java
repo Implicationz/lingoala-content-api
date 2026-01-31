@@ -29,6 +29,7 @@ public class LibraryContentDto {
     private UUID ownerId;
     private int estimatedDuration;
     private String image;
+    private String description;
 
     private LibraryMaterialDto material;
     private List<LibraryContentPartDto> partOf;

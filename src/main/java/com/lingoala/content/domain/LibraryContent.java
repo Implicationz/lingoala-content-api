@@ -52,6 +52,9 @@ public class LibraryContent extends AuditAwareEntity {
 
     private String image;
 
+    @Column(columnDefinition = "text")
+    private String description;
+
     private Instant publishedAt;
 
     @OneToOne(cascade = CascadeType.ALL)
