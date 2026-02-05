@@ -55,7 +55,7 @@ public class LibrarySearchServiceImpl implements LibrarySearchService {
     public LibrarySearchDto create(LibrarySearchDto librarySearchDto) {
         var librarySearch = librarySearchMapper.toEntity(librarySearchDto);
         var found = search(librarySearch);
-        var references = found.stream().map(e -> e.getId().toString()).toList();
+        var references = found.stream().map(e -> e.getContent().getId().toString()).toList();
         var language = LanguageCode.valueOf("zh");
         var goals = gamificationClient.getLibraryContentGoals(language, references);
         var hits = toHits(found, goals);
