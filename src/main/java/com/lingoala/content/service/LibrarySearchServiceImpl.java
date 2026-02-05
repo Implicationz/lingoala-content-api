@@ -41,7 +41,7 @@ public class LibrarySearchServiceImpl implements LibrarySearchService {
 
         var hits = found.stream()
                 .map(entry -> {
-                    var goal = goalByRef.getOrDefault(entry.getId(), null);
+                    var goal = goalByRef.getOrDefault(entry.getContent().getId(), null);
                     return LibrarySearchHit.builder()
                             .entry(entry)
                             .goal(goal)
