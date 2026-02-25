@@ -54,10 +54,11 @@ public class LibrarySearchServiceImpl implements LibrarySearchService {
     @Override
     public LibrarySearchDto create(LibrarySearchDto librarySearchDto) {
         var librarySearch = librarySearchMapper.toEntity(librarySearchDto);
+        var library = libraryRepository.findById(librarySearch.getLibrary().getId())
+                .orElseThrow(() -> new IllegalArgumentException("Library not found with id: " + librarySearch.getLibrary().getId()));
         var found = search(librarySearch);
         var references = found.stream().map(e -> e.getContent().getId().toString()).toList();
-        var language = LanguageCode.valueOf("zh");
-        var goals = gamificationClient.getLibraryContentGoals(language, references);
+        var goals = gamificationClient.getLibraryContentGoals(library.getLanguage(), references);
         var hits = toHits(found, goals);
         var savedLibrarySearch = LibrarySearch.builder()
                 .subject(librarySearch.getSubject())
