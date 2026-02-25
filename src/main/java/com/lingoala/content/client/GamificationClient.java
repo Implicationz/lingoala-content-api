@@ -35,10 +35,14 @@ public interface GamificationClient {
     GoalZoneDto createZone(@RequestBody GoalZoneDto zoneDto);
 
     default List<GoalDto> getIncompleteLibraryContentGoals(LanguageCode code) {
-        return getLibraryContentGoals(code, null);
+        return getLibraryContentGoals(code, null, false);
     }
 
     default List<GoalDto> getLibraryContentGoals(LanguageCode code, List<String> references) {
-        return getGoals(code.getValue(), "library-content", references, null);
+        return getLibraryContentGoals(code, references, null);
+    }
+
+    default List<GoalDto> getLibraryContentGoals(LanguageCode code, List<String> references, Boolean isCompleted) {
+        return getGoals(code.getValue(), "library-content", references, isCompleted);
     }
 }
