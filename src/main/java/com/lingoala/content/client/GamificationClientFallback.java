@@ -17,7 +17,7 @@ import java.util.List;
 public class GamificationClientFallback implements GamificationClient {
 
     @Override
-    public List<GoalDto> getGoals(String zone, String type, List<String> references) {
+    public List<GoalDto> getGoals(String zone, String type, List<String> references, Boolean isCompleted) {
         log.warn("Fallback getGoals called for zone={}, type={} - returning empty list", zone, type);
         return Collections.emptyList();
     }

@@ -24,7 +24,8 @@ public interface GamificationClient {
     List<GoalDto> getGoals(
             @RequestParam("zone") String zone,
             @RequestParam("type") String type,
-            @RequestParam(value = "references", required = false) List<String> references
+            @RequestParam(value = "references", required = false) List<String> references,
+            @RequestParam(value = "isCompleted", required = false) Boolean isCompleted
     );
 
     @PostMapping("/goal-type")
@@ -33,11 +34,11 @@ public interface GamificationClient {
     @PostMapping("/goal-zone")
     GoalZoneDto createZone(@RequestBody GoalZoneDto zoneDto);
 
-    default List<GoalDto> getLibraryContentGoals(LanguageCode code) {
+    default List<GoalDto> getIncompleteLibraryContentGoals(LanguageCode code) {
         return getLibraryContentGoals(code, null);
     }
 
     default List<GoalDto> getLibraryContentGoals(LanguageCode code, List<String> references) {
-        return getGoals(code.getValue(), "library-content", references);
+        return getGoals(code.getValue(), "library-content", references, null);
     }
 }

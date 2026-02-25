@@ -60,7 +60,7 @@ public class ContentCarouselServiceImpl implements ContentCarouselService {
     public ContentCarouselDto create(ContentCarouselDto contentCarouselDto) {
         var contentCarousel = contentCarouselMapper.toEntity(contentCarouselDto);
         var language = contentCarousel.getLanguage();
-        var goals = gamificationClient.getLibraryContentGoals(language);
+        var goals = gamificationClient.getIncompleteLibraryContentGoals(language);
         var references = extractReferences(goals);
         var found = libraryContentRepository.findAllById(references);
         var slides = toSlides(goals, found);
